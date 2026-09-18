@@ -29,13 +29,11 @@ login(credentials, (err, api) => {
 
   console.log("✅ Bot connecté à Facebook avec succès !");
 
-  // Réglages de base de l'API
   api.setOptions({
     listenEvents: true,
     selfListen: false,
   });
 
-  // --- Écoute des messages entrants ---
   api.listenMqtt((err, event) => {
     if (err) {
       console.error("Erreur d'écoute :", err);
@@ -45,25 +43,6 @@ login(credentials, (err, api) => {
     if (event.type === "message" && event.body) {
       const message = event.body.trim();
 
-      // Test simple pour vérifier que ça fonctionne
-      if (message.toLowerCase() === "xtest") {
-        api.sendMessage("Sitri-Nel est bien connectée ✅ — créée par Nelson.", event.threadID);
-      }
-    }
-  });
-});
-
-  // --- Écoute des messages entrants ---
-  api.listenMqtt((err, event) => {
-    if (err) {
-      console.error("Erreur d'écoute :", err);
-      return;
-    }
-
-    if (event.type === "message" && event.body) {
-      const message = event.body.trim();
-
-      // Test simple pour vérifier que ça fonctionne
       if (message.toLowerCase() === "xtest") {
         api.sendMessage("Sitri-Nel est bien connectée ✅ — créée par Nelson.", event.threadID);
       }
