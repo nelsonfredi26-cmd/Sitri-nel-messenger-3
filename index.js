@@ -1,6 +1,6 @@
 // ===== Bot Messenger - Étape 1 : Connexion + Keep-Alive =====
 
-const login = require("biar-fca");
+const { login } = require("biar-fca");
 const express = require("express");
 
 // --- Petit serveur web pour empêcher Render d'endormir le bot ---
