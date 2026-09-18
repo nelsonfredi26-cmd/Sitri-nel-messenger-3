@@ -1,6 +1,6 @@
 // ===== Bot Messenger - Étape 1 : Connexion + Keep-Alive =====
 
-const login = require("@eryxenx/fca");
+const login = require("biar-fca");
 const express = require("express");
 
 // --- Petit serveur web pour empêcher Render d'endormir le bot ---
@@ -34,6 +34,24 @@ login(credentials, (err, api) => {
     listenEvents: true,
     selfListen: false,
   });
+
+  // --- Écoute des messages entrants ---
+  api.listenMqtt((err, event) => {
+    if (err) {
+      console.error("Erreur d'écoute :", err);
+      return;
+    }
+
+    if (event.type === "message" && event.body) {
+      const message = event.body.trim();
+
+      // Test simple pour vérifier que ça fonctionne
+      if (message.toLowerCase() === "xtest") {
+        api.sendMessage("Sitri-Nel est bien connectée ✅ — créée par Nelson.", event.threadID);
+      }
+    }
+  });
+});
 
   // --- Écoute des messages entrants ---
   api.listenMqtt((err, event) => {
