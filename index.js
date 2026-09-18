@@ -4,6 +4,7 @@ const {
   default: makeWASocket,
   useMultiFileAuthState,
   DisconnectReason,
+  Browsers,
 } = require("@whiskeysockets/baileys");
 const express = require("express");
 
@@ -28,10 +29,13 @@ async function startBot() {
   const sock = makeWASocket({
     auth: state,
     printQRInTerminal: false,
+    browser: Browsers.ubuntu("Chrome"),
   });
 
   // Si le compte n'est pas encore lié, on demande un code d'appairage
+  // (petit délai obligatoire, sinon la connexion plante juste après)
   if (!sock.authState.creds.registered) {
+    await new Promise((resolve) => setTimeout(resolve, 3000));
     const code = await sock.requestPairingCode(PHONE_NUMBER);
     console.log("=======================================");
     console.log("CODE D'APPAIRAGE :", code);
