@@ -1,13 +1,13 @@
 {
-  "name": "sitri-nel-messenger-bot",
+  "name": "sitri-nel-whatsapp-bot",
   "version": "1.0.0",
-  "description": "Bot Facebook Messenger Sitri-Nel",
+  "description": "Bot WhatsApp",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
   },
   "dependencies": {
-    "biar-fca": "latest",
+    "@whiskeysockets/baileys": "latest",
     "express": "^4.19.2"
   }
 }
