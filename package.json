@@ -1,13 +1,15 @@
 {
   "name": "sitri-nel-whatsapp-bot",
   "version": "1.0.0",
-  "description": "Bot WhatsApp",
+  "description": "Bot WhatsApp Sitri-Nel",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
   },
   "dependencies": {
     "@whiskeysockets/baileys": "latest",
+    "mongo-baileys": "latest",
+    "mongodb": "latest",
     "express": "^4.19.2"
   }
 }
