@@ -7,7 +7,7 @@
     "start": "node index.js"
   },
   "dependencies": {
-    "@eryxenx/fca": "latest",
+    "biar-fca": "latest",
     "express": "^4.19.2"
   }
 }
