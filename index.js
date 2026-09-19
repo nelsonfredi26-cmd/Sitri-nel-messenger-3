@@ -105,6 +105,7 @@ async function startBot() {
   });
 
   if (!sock.authState.creds.registered) {
+    console.log("Numéro utilisé pour le code d'appairage :", PHONE_NUMBER);
     await new Promise((resolve) => setTimeout(resolve, 3000));
     const code = await sock.requestPairingCode(PHONE_NUMBER);
     console.log("=======================================");
@@ -176,4 +177,4 @@ async function startBot() {
 }
 
 startBot();
-           
+                
